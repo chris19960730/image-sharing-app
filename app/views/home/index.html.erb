@@ -1,11 +1,22 @@
-
-
   <div class="jumbotron">
     <h1 class="display-3">Landing Page</h1>
     <p class="lead">Jumbo helper text</p>
     <hr class="my-2">
     <p>More info</p>
     <p class="lead">
-    <%= link_to "Post a new image", new_image_path, class:"btn btn-primary btn-lg"%>
+    <%= link_to "Post a new image", new_image_path, class: "btn btn-primary btn-lg" %>
       
     </p>
+  </div>
+
+
+ <div>
+  
+    <% @images.each do |image| %>
+      <div class="row">
+        <div class="col-6">
+          <%= image_tag image.url, class: "image-size" %>
+        </div>
+       </div>
+    <% end %>
+  </div>
