@@ -1,1 +1,1 @@
-release: rails db:setup
+release: bundle exec rails db:setup
