@@ -1,0 +1,9 @@
+<h1 class="text-center mt-4">Image Detail</h1>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @image.name %></h5>
+    </div>
+    <%= image_tag(@image.url, class: "img-thumbnail") %>
+    
+</div>
