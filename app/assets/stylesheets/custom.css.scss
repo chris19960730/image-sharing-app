@@ -1,5 +1,29 @@
 @import "bootstrap/dist/css/bootstrap";
 
-.image-size {
-  max-width: 400px ;
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+.navbar {
+    background-color: #6A4C9C !important;
+}
+.nav-link {
+    color: #91B493 !important;
+}
+
+#logo{
+    float:left;
+    font-size: 1.7em;
+    color:#F7D94C;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
