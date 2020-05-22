@@ -38,11 +38,11 @@ class Image < ApplicationRecord
     end
     if url =~ /^https/
       if !check_with_https(url)
-        errors.add(:url, "Invalid URL")
+        errors.add(:url, "not image url")
       end
     else
       if !check_with_http(url)
-        errors.add(:url, "Invalid URL")
+        errors.add(:url, "not image url")
       end
     end
   end

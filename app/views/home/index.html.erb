@@ -10,13 +10,5 @@
   </div>
 
 
- <div>
-  
-    <% @images.each do |image| %>
-      <div class="row">
-        <div class="col-6">
-          <%= image_tag image.url, class: "image-size" %>
-        </div>
-       </div>
-    <% end %>
-  </div>
+<%= render 'home/images_index'%>
+
