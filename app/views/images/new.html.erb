@@ -21,7 +21,7 @@
                 <div class="col-8">
                     <%= f.url_field :url, required: true, class: "form-control shadow rounded" %>
                    
-                    <small id="emailHelp" class="form-text text-muted">This should be the image full url,typically include the image filename</small>
+                    <small  class="form-text text-muted">This should be the image full url,typically include the image filename</small>
                 </div>
                  <% if !@image.errors[:url].blank? %>
                 <div class="col-2 font-italic text-danger">
@@ -29,6 +29,16 @@
                 </div>
                 <% end %>
             </div>
+
+            <div class="form-group row">
+                <%= f.label :tag_list, class: "col-2" %>
+                <div class="col-8">
+                    <%= f.text_field :tag_list, class: "form-control shadow rounded", placeholder: "Simply type tags split by comma" %>
+                    
+
+                </div>
+            </div>
+
             <div class="form-group row justify-content-center">
                 <%= f.submit "Post", class: "btn btn-outline-warning btn-lg shadow rounded" %>
             </div>

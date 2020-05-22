@@ -1,9 +1,17 @@
 <h1 class="text-center mt-4">Image Detail</h1>
 
-<div class="card" style="width: 18rem;">
+<div class="card" >
     <div class="card-body">
         <h5 class="card-title"><%= @image.name %></h5>
     </div>
-    <%= image_tag(@image.url, class: "img-thumbnail") %>
-    
+    <%= image_tag(@image.url, class: "card-img") %>
+    <div class="card-footer text-muted">
+     <% if @image.tags.count > 0 %>
+     <div class="mb-2">
+        Tags: <%= render @image.tags %>
+     </div>
+    <% end %>
+   <small>Created <%= time_ago_in_words(@image.created_at) %></small> 
+   
+  </div>
 </div>
