@@ -20,4 +20,12 @@ class ImagesController < ApplicationController
       render "new"
     end
   end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    render js { partial :home / images_index }
+    flash[:notice] = "Image #{@image.name} was deleted successfully"
+    redirect_to root_path
+  end
 end

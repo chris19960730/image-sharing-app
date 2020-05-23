@@ -2,9 +2,10 @@
 
 class Image < ApplicationRecord
   acts_as_taggable_on :tags
-
+  validates_presence_of :tag_list
   validates :name, presence: true
   validates :url, presence: true
+
   validate :image_url_valid?
 
   # Define method to check if the Image URL is valid

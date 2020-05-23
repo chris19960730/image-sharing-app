@@ -13,19 +13,24 @@
             <div class="form-group row">
                 <%= f.label :name, class: "col-2" %>
                 <div class="col-8">
-                    <%= f.text_field :name, required: true, class: "form-control shadow rounded" %>
+                    <%= f.text_field :name, class: "form-control shadow rounded" %>
                 </div>
+                <% if !@image.errors[:name].blank? %>
+                <div class="col-2 font-italic text-danger">
+                <strong>Name </strong><%= @image.errors[:name][0] %>
+                </div>
+                <% end %>
             </div>
             <div class="form-group row">
                 <%= f.label :url, class: "col-2" %>
                 <div class="col-8">
-                    <%= f.url_field :url, required: true, class: "form-control shadow rounded" %>
+                    <%= f.url_field :url, class: "form-control shadow rounded" %>
                    
                     <small  class="form-text text-muted">This should be the image full url,typically include the image filename</small>
                 </div>
                  <% if !@image.errors[:url].blank? %>
                 <div class="col-2 font-italic text-danger">
-                <strong>Error: </strong><%= @image.errors[:url][0] %>
+                <strong>URL </strong><%= @image.errors[:url][0] %>
                 </div>
                 <% end %>
             </div>
@@ -34,9 +39,12 @@
                 <%= f.label :tag_list, class: "col-2" %>
                 <div class="col-8">
                     <%= f.text_field :tag_list, class: "form-control shadow rounded", placeholder: "Simply type tags split by comma" %>
-                    
-
                 </div>
+                 <% if !@image.errors[:tag_list].blank? %>
+                <div class="col-2 font-italic text-danger">
+                <strong>Tag list </strong><%= @image.errors[:tag_list][0] %>
+                </div>
+                <% end %>
             </div>
 
             <div class="form-group row justify-content-center">
