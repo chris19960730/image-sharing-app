@@ -1,1 +1,7 @@
-<span class="badge badge-warning mr-1"> <%= link_to tag.name, "#" %></span>
+<% if tag.name == @tag %>
+
+<span class="badge badge-success mr-1"> <%= link_to tag.name, tag_path(tag.name), class: "text-dark" %></span>
+<% else %>
+
+<span class="badge badge-warning mr-1"> <%= link_to tag.name, tag_path(tag.name), class: "text-dark" %></span>
+<% end %>
