@@ -28,4 +28,19 @@ class ImagesController < ApplicationController
     flash[:notice] = "Image #{@image.name} was deleted successfully"
     redirect_to root_path
   end
+
+  def edit
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    if @image.update(params.require(:image).permit(:name, :url, :tag_list))
+      flash[:notice] = "Image was updated successfully"
+      redirect_to image_path(@image)
+    else
+      flash[:alert] = "Image can't be updated!"
+      render "edit"
+    end
+  end
 end

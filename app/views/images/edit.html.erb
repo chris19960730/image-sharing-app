@@ -1,0 +1,48 @@
+
+<h1 class="text-center mt-4">Edit image: <%= @image.name %></h1>
+
+
+
+
+
+<div class="row justify-content-center mt-5">
+        <div class="col-10">
+       
+        <%= form_with model: @image, local: true do |f| %>
+            
+             <div class="my-3">
+                <%= image_tag @image.url, class: "img-thumbnail mx-auto d-block image-size" %>
+            </div>
+
+            <div class="form-group row">
+                <%= f.label :name, class: "col-2" %>
+                <div class="col-8">
+                    <%= f.text_field :name, class: "form-control shadow rounded" %>
+                </div>
+                <% if !@image.errors[:name].blank? %>
+                <div class="col-2 font-italic text-danger">
+                <strong>Name </strong><%= @image.errors[:name][0] %>
+                </div>
+                <% end %>
+            </div>
+           
+            <div class="form-group row">
+                <%= f.label :tag_list, class: "col-2" %>
+                <div class="col-8">
+                    <%= f.text_field :tag_list, class: "form-control shadow rounded", placeholder: "Simply type tags split by comma" %>
+                </div>
+                 <% if !@image.errors[:tag_list].blank? %>
+                <div class="col-2 font-italic text-danger">
+                <strong>Tag list </strong><%= @image.errors[:tag_list][0] %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <%= f.submit "Update", class: "btn btn-outline-warning btn-lg shadow rounded" %>
+            </div>
+
+        <% end %>
+    </div>
+</div>
+
