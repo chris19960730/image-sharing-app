@@ -53,7 +53,7 @@ class Image < ApplicationRecord
   end
 
   def validate_str(str)
-    valid_chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a + ["-"]
+    valid_chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a + ["-", " "]
     str.chars.all? { |ch| valid_chars.include?(ch) }
   end
 
