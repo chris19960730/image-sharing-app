@@ -2,6 +2,7 @@
 
 class Image < ApplicationRecord
   acts_as_taggable_on :tags
+
   validates_presence_of :tag_list
   validates :name, presence: true
   validates :url, presence: true
@@ -58,8 +59,6 @@ class Image < ApplicationRecord
 
   def tags_valid?
     tags = self.tag_list
-    puts "************************ *********************"
-    puts tags
     if tags.blank?
       return false
     end
