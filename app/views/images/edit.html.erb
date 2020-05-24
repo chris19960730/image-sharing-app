@@ -1,5 +1,5 @@
 
-<h1 class="text-center mt-4">Save an Image</h1>
+<h1 class="text-center mt-4">Edit image: <%= @image.name %></h1>
 
 
 
@@ -10,6 +10,10 @@
        
         <%= form_with model: @image, local: true do |f| %>
             
+             <div class="my-3">
+                <%= image_tag @image.url, class: "img-thumbnail mx-auto d-block image-size" %>
+            </div>
+
             <div class="form-group row">
                 <%= f.label :name, class: "col-2" %>
                 <div class="col-8">
@@ -21,20 +25,7 @@
                 </div>
                 <% end %>
             </div>
-            <div class="form-group row">
-                <%= f.label :url, class: "col-2" %>
-                <div class="col-8">
-                    <%= f.url_field :url, class: "form-control shadow rounded" %>
-                   
-                    <small  class="form-text text-muted">This should be the image full url,typically include the image filename</small>
-                </div>
-                 <% if !@image.errors[:url].blank? %>
-                <div class="col-2 font-italic text-danger">
-                <strong>URL </strong><%= @image.errors[:url][0] %>
-                </div>
-                <% end %>
-            </div>
-
+           
             <div class="form-group row">
                 <%= f.label :tag_list, class: "col-2" %>
                 <div class="col-8">
@@ -48,7 +39,7 @@
             </div>
 
             <div class="form-group row justify-content-center">
-                <%= f.submit "Post", class: "btn btn-outline-warning btn-lg shadow rounded" %>
+                <%= f.submit "Update", class: "btn btn-outline-warning btn-lg shadow rounded" %>
             </div>
 
         <% end %>

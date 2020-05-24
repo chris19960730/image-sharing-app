@@ -8,6 +8,9 @@
                 <%= image_tag image.url, class: "card-img-top image-size" %>
                 <div class="card-body">
                     <p class="card-text"><%= image.name %></p>
+                    <%= link_to "View", image_path(image), class: "btn btn-outline-success" %>
+                    <%= link_to "Delete", image_path(image), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger", id: "image_delete" %>
+                    
                 </div>
                 <div class="card-footer text-muted">
                     <% if image.tags.count > 0 %>
