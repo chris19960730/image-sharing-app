@@ -43,4 +43,20 @@ class ImagesController < ApplicationController
       render "edit"
     end
   end
+
+  def new_share
+    @image = Image.find(params[:id])
+  end
+
+  def create_share
+    @image = Image.find(params[:id])
+    @email = params[:email]
+
+    if ImageShareMailer.with(image: @image, email: @email).welcome_email.deliver_now
+      flash[:notice] = "invitation email has been sent successfully"
+      redirect_to root_path
+    else
+      render "new_share"
+    end
+  end
 end
