@@ -2,6 +2,7 @@
 
 class Image < ApplicationRecord
   acts_as_taggable_on :tags
+
   validates_presence_of :tag_list
   validates :name, presence: true
   validates :url, presence: true
@@ -52,14 +53,12 @@ class Image < ApplicationRecord
   end
 
   def validate_str(str)
-    valid_chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a + ["-"]
+    valid_chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a + ["-", " "]
     str.chars.all? { |ch| valid_chars.include?(ch) }
   end
 
   def tags_valid?
     tags = self.tag_list
-    puts "************************ *********************"
-    puts tags
     if tags.blank?
       return false
     end
