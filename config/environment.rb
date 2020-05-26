@@ -8,8 +8,8 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
 end
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => ENV["SENDGRID_USER_NAME"],
-  :password => ENV["SENDGRID_PASSWORD"],
+  :user_name => "chrisyqwe123",
+  :password => "19960730-Chris",
   :domain => "heroku.com",
   :address => "smtp.sendgrid.net",
   :port => "465",
