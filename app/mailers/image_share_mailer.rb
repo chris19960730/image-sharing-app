@@ -1,5 +1,5 @@
 class ImageShareMailer < ApplicationMailer
-  default from: "app172420509@heroku.com"
+  default from: "390074138chris@gmail.com"
 
   def welcome_email
     @image = params[:image]
