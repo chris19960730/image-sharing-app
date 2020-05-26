@@ -4,7 +4,7 @@ class ImageShareMailer < ApplicationMailer
   def welcome_email(image, email)
     @image = image
     @email = email
-    @url = "https://getbootstrap.com/docs/4.4/content/images/"
+    @url = "https://eating-image.herokuapp.com/"
     mail(to: @email, subject: "welcome to My awesome site!!")
   end
 end
