@@ -1,5 +1,5 @@
 class ImageShareMailer < ApplicationMailer
-  default from: "390074138chris@gmail.com"
+  default from: "chrisiseatinglol@gmail.com"
 
   def welcome_email(image, email)
     @image = image
