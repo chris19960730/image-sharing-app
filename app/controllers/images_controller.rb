@@ -52,7 +52,8 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @email = params[:email]
 
-    if ImageShareMailer.with(image: @image, email: @email).welcome_email.deliver_now
+    if ImageShareMailer.welcome_email(@image, @email).deliver
+      # ImageShareMailer.with(image: @image, email: @email).welcome_email.deliver_now
       flash[:notice] = "invitation email has been sent successfully"
       redirect_to root_path
     else

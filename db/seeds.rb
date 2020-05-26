@@ -30,5 +30,5 @@ image_url_list = [
 ]
 
 image_url_list.each_with_index do |url, i|
-  Image.create(name: i, url: url)
+  Image.create(name: i, url: url, tag_list: ["default"])
 end
