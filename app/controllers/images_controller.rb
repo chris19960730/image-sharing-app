@@ -52,7 +52,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @email = params[:email]
     @message = params[:message]
-    byebug
+
     respond_to do |format|
       if helpers.isEmail(@email[0])
         ImageShareMailer.welcome_email(@image, @email, @message).deliver
