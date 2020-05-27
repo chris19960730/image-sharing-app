@@ -5,15 +5,50 @@
         <h5 class="card-title"><%= @image.name %></h5>
         <%= link_to "Edit Image", edit_image_path(@image), class: "btn btn-outline-info" %>  
         <%= link_to "Share Image", share_path_path(@image), class: "btn btn-outline-success" %>  
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Share Image</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">                 
+                    <%= form_with url: share_path_path(@image), remote: true, id: "share_from" do %>
+                        <div class="my-3">
+                            <%= image_tag @image.url, class: "img-thumbnail mx-auto d-block image-size" %>
+                        </div>
+                        <div class="form-group">
+                            <%= label_tag :email, "Recipient email address:", class: "col-form-label" %>                        
+                            <%= email_field :email, params[:email], autofocus: true, class: "form-control shadow rounded" %>
+                        </div>
+                        <div class="form-group">
+                            <%= label_tag :message, "Message:", class: "col-form-label" %>                        
+                            <%= text_area :message, params[:message], row: 5, autofocus: true, class: "form-control shadow rounded" %>
+                        </div>
+                    <% end %>      
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="submit_btn" class="btn btn-primary">Share</button>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
     <%= image_tag(@image.url, class: "card-img") %>
     <div class="card-footer text-muted">
-     <% if @image.tags.count > 0 %>
-     <div class="mb-2">
+        <% if @image.tags.count > 0 %>
+        <div class="mb-2">
         Tags: <%= render @image.tags %>
-     </div>
+        </div>
     <% end %>
-   <small>Created <%= time_ago_in_words(@image.created_at) %></small> 
+        <small>Created <%= time_ago_in_words(@image.created_at) %></small> 
    
-  </div>
+    </div>
 </div>
+
+
+<%= javascript_pack_tag "form_control" %>
