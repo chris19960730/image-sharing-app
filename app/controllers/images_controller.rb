@@ -51,11 +51,11 @@ class ImagesController < ApplicationController
   def create_share
     @image = Image.find(params[:id])
     @email = params[:email]
-    @messsage = params[:message]
-
+    @message = params[:message]
+    byebug
     respond_to do |format|
       if helpers.isEmail(@email[0])
-        ImageShareMailer.welcome_email(@image, @email).deliver
+        ImageShareMailer.welcome_email(@image, @email, @message).deliver
         format.html { redirect_to @image, notice: "invitation email has been sent successfully" }
         #flash.now[:notice] = "invitation email has been sent successfully"
 

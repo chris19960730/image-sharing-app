@@ -15,8 +15,9 @@
     
       To login to the site, just follow this link: <%= @url %>.
     </p>
-
+  <% if @message %>
     <p><%= @message[0] %></p>
+  <% end %>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
