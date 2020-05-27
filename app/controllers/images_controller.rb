@@ -58,10 +58,10 @@ class ImagesController < ApplicationController
         ImageShareMailer.welcome_email(@image, @email).deliver
         format.html { redirect_to @image, notice: "invitation email has been sent successfully" }
         #flash.now[:notice] = "invitation email has been sent successfully"
-        format.js
+
       else
-        format.html { redirect_to @image }
-        format.js { render "$('exampleModal').modal('show');" }
+        #format.html { redirect_to @image }
+        format.js { render "" }
       end
     end
 
