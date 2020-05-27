@@ -60,8 +60,7 @@ class ImagesController < ApplicationController
         #flash.now[:notice] = "invitation email has been sent successfully"
 
       else
-        #format.html { redirect_to @image }
-        format.js { render "" }
+        format.html { redirect_to @image, alert: "share failed, ecountered error" }
       end
     end
 

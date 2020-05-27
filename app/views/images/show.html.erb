@@ -22,7 +22,9 @@
                         </div>
                         <div class="form-group">
                             <%= label_tag :email, "Recipient email address:", class: "col-form-label" %>                        
-                            <%= email_field :email, params[:email], autofocus: true, class: "form-control shadow rounded" %>
+                            <%= email_field :email, params[:email], autofocus: true, id: "email_input", class: "form-control shadow rounded" %>
+                        </div>
+                        <div id="validation_error">
                         </div>
                         <div class="form-group">
                             <%= label_tag :message, "Message:", class: "col-form-label" %>                        
