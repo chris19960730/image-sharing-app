@@ -51,13 +51,25 @@ class ImagesController < ApplicationController
   def create_share
     @image = Image.find(params[:id])
     @email = params[:email]
+    @messsage = params[:message]
 
-    if ImageShareMailer.welcome_email(@image, @email).deliver
-      # ImageShareMailer.with(image: @image, email: @email).welcome_email.deliver_now
-      flash[:notice] = "invitation email has been sent successfully"
-      redirect_to root_path
-    else
-      render "new_share"
+    respond_to do |format|
+      if helpers.isEmail(@email[0])
+        ImageShareMailer.welcome_email(@image, @email).deliver
+        format.html { redirect_to @image, notice: "invitation email has been sent successfully" }
+        #flash.now[:notice] = "invitation email has been sent successfully"
+
+      else
+        format.html { redirect_to @image, alert: "share failed, ecountered error" }
+      end
     end
+
+    # if ImageShareMailer.welcome_email(@image, @email).deliver
+    #   # ImageShareMailer.with(image: @image, email: @email).welcome_email.deliver_now
+    #   flash[:notice] = "invitation email has been sent successfully"
+    #   redirect_to root_path
+    # else
+    #   render "new_share"
+    # end
   end
 end
